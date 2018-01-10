@@ -33,7 +33,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/gossterrible/ss
 ## 增加节点
 本脚本为：已有**vps安装好主控端**，添加新节点时，在**新节点**使用的脚本。
 ```
-wget -N --no-check-certificate https://raw.githubusercontent.com/gossterrible/ss-mgr/master/sm.sh && chmod +x sm_node.sh && bash sm_node.sh
+wget -N --no-check-certificate https://raw.githubusercontent.com/gossterrible/ss-mgr/master/sm_node.sh && chmod +x sm_node.sh && bash sm_node.sh
 ```
 
 - 输入密码
