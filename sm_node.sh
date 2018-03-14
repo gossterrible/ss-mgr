@@ -93,7 +93,7 @@ install_ss_mgr(){
 ss_mgr_s(){
 	install_ss_mgr
 	mkdir /root/.ssmgr
-	wget -N -P  /root/.ssmgr/ https://raw.githubusercontent.com/mmmwhy/ss-mgr/master/ss.yml
+	wget -N -P  /root/.ssmgr/ https://raw.githubusercontent.com/gossterrible/ss-mgr/master/ss.yml
 	sed -i "s#123456#${password}#g" /root/.ssmgr/ss.yml
 	cd /root/shadowsocks-manager/
 	screen -dmS ss node server.js -c /root/.ssmgr/ss.yml
