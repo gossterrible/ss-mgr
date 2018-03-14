@@ -1,37 +1,22 @@
-[shadowsocks-manager是一个非常帅气的ss多用户管理程序，搭建起来稍微有点麻烦，因此写了本一键脚本。
+[shadowsocks-manager]
 
----
+Demo：https://wall.gyteng.com
 
-# 效果
+# Requirements 
+Centos7 X64, tested on Tencent cloud, digitialocean, interserver, ethernetservers.
+Other versions have not been tested and are theoretically available.
+# Installation script
 
-![](http://cdn.mmmxcc.cn/blog/20170513/135344468.png)
-![](http://cdn.mmmxcc.cn/blog/20170513/135349156.png)
-![](http://cdn.mmmxcc.cn/blog/20170513/135357497.png)
-![](http://cdn.mmmxcc.cn/blog/20170513/140400232.png)
-
-github： https://github.com/mmmwhy/ss-mgr
-
-示例网站：https://wall.gyteng.com
-
-# 特点
-- 非常帅气，各种图表一上，是不是很牛逼的感觉。
-- 支持支付宝付款对账，站长们多出来的vps可以不用再继续吃灰了。
-
-# 要求
-centos7 X64，在腾讯云，digitialocean,interserver,ethernetservers通过测试。
-其他版本还没有测试，理论上可用。
-# 安装脚本
-
-## 安装ss-mgr
-本脚本包括主控端和节点端，安装时，自动添加本vps作为一个节点。
+## Installing ss-mgr Master node and node
+This script includes the master and the node. During installation,the server is automatically added as a node.
 ```
 wget -N --no-check-certificate https://raw.githubusercontent.com/gossterrible/ss-mgr/master/sm.sh && chmod +x sm.sh && bash sm.sh
 ```
-坐等就可以了，没有什么需要做的东西。
-打开ip地址，就可以看到ss-mgr了。
+After the installation is complete visit your IP address an you will ss-mgr should be installed.
 
-## 增加节点
-本脚本为：已有**vps安装好主控端**，添加新节点时，在**新节点**使用的脚本。
+
+## Add a new node
+On a new server use the script below to install a new node.
 ```
 wget -N --no-check-certificate https://raw.githubusercontent.com/gossterrible/ss-mgr/master/sm_node.sh && chmod +x sm_node.sh && bash sm_node.sh
 ```
