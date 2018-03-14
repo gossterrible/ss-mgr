@@ -84,7 +84,7 @@ install_ss_mgr(){
 	install_nodejs
 	install_libsodium
 	install_ss_for_each
-	git clone https://github.com/mmmwhy/shadowsocks-manager.git "/root/shadowsocks-manager"
+	git clone https://github.com/shadowsocks/shadowsocks-manager.git "/root/shadowsocks-manager"
 	cd /root/shadowsocks-manager
 	npm i
 	ln -s /usr/local/nodejs/node-v6.9.1-linux-x64/bin/ssmgr /usr/local/bin/ssmgr
