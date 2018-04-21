@@ -21,21 +21,19 @@ On a new server use the script below to install a new node.
 wget -N --no-check-certificate https://raw.githubusercontent.com/gossterrible/ss-mgr/master/sm_node.sh && chmod +x sm_node.sh && bash sm_node.sh
 ```
 
-- 输入密码
+-Enter the password (This password will be used to connect the node with the host server)
 ![](http://cdn.mmmxcc.cn/blog/20170514/135830856.png)
-- 前端页面填入，刚才的密码，选择加密方式。
+- Enter the ip or address for the new node, password, and select the encryption method used wheninstalling node
 ![](http://cdn.mmmxcc.cn/blog/20170514/140131877.png)
 
-# 备注
-- 注册的第一个用户就是管理员.
-- 注册第二个账号，可以看到自己的剩余时间，一般来说是8个小时。可以点击续费，选择任意一个额度，支付后，可以看到时间会增长。
-- 默认使用hotmail邮箱，因为邮箱在国外，所以如果服务器在国内的话，可能会timeout。
-- 某些系统内核版本过老，因此可能会出现如下症状，按回车就可以了。
+#Note
+- The first registered user is the administrator.
+- Register your second account and you can see your remaining time, which is generally 8 hours. You can click on the renewal fee and select any amount. After paying, you can see that the time will increase.
+- By default,a hotmail mailbox is used.If your main server is located in mainland china you can have issues with connection timeout when sending emails.
+- If your using an old kernel version you might have some promt like the one below Pressing Enter will be ok.
 ![](http://cdn.mmmxcc.cn/blog/20170513/135239354.png)
-- 被墙掉的资源都换成国内的了。
 
-鉴于很多小鸡可能带不动docker，因此这里使用传统方式安装，速度会慢一些。
-其中，三条重要命令开启是通过`screen`完成的。
+If your not familiar with using docker to start the processes you can use the Screen command below to start the processes in the background.
 ```
 screen -dmS ss-manager ss-manager -m aes-256-cfb -u --manager-address 127.0.0.1:4000
 cd /root/shadowsocks-manager/
@@ -43,9 +41,10 @@ screen -dmS ss node server.js -c /root/.ssmgr/ss.yml
 screen -dmS webgui node server.js -c /root/.ssmgr/webgui.yml
 ```
 ---
-因为本工具较难配置，因此如果有问题的话，可以通过tg联系我。https://t.me/feiyangss
+If you have any problem you can get help from this telegram group: https://t.me/feiyangss
 
 ---
-参考以下链接：
-https://code.momok.xyz/server/deploy-ss-manager.html
-https://github.com/shadowsocks/shadowsocks-manager
+Credits：
+Original Chinese version:https://github.com/mmmwhy/ss-mgr 
+Reference: https://code.momok.xyz/server/deploy-ss-manager.html
+Shadowsocks Manager : https://github.com/shadowsocks/shadowsocks-manager
