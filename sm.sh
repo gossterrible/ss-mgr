@@ -44,13 +44,13 @@ install_nodejs(){
 }
 install_libsodium(){
 	cd /root
-	wget -N -P  /root https://raw.githubusercontent.com/mmmwhy/ss-panel-and-ss-py-mu/master/libsodium-1.0.11.tar.gz
+	wget -N -P  https://github.com/jedisct1/libsodium/releases/download/1.0.10/libsodium-1.0.10.tar.gz
 	tar xvf libsodium-1.0.11.tar.gz && rm -rf libsodium-1.0.11.tar.gz
 	pushd libsodium-1.0.11
 	./configure --prefix=/usr && make
 	make install
 	popd
-	wget http://home.ustc.edu.cn/~mmmwhy/mbedtls-2.4.0-gpl.tgz
+	wget https://tls.mbed.org/code/releases/mbedtls-2.4.0-gpl.tgz
 	tar xvf mbedtls-2.4.0-gpl.tgz && rm -rf mbedtls-2.4.0-gpl.tgz
 	pushd mbedtls-2.4.0
 	make SHARED=1 CFLAGS=-fPIC
