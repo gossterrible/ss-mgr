@@ -68,9 +68,10 @@ install_ss_libev(){
 	make && make install
 }
 install_ss_ubuntu(){
-	sudo add-apt-repository ppa:max-c-lv/shadowsocks-libev
+	sudo apt-get install software-properties-common python-software-properties -y
+	sudo add-apt-repository ppa:max-c-lv/shadowsocks-libev -y
 	sudo apt-get update
-	sudo apt install shadowsocks-libev
+	sudo apt install shadowsocks-libev -y
 }
 install_ss_for_each(){
 	if [[ ${release} = "centos" ]]; then
