@@ -36,11 +36,11 @@ install_soft_for_each(){
 }
 install_nodejs(){
 	mkdir /usr/local/nodejs
- 	wget http://home.ustc.edu.cn/~mmmwhy/node-v6.9.1-linux-x64.tar.gz
- 	tar -xf node-v6.9.1-linux-x64.tar.gz -C /usr/local/nodejs/
- 	rm -rf node-v6.9.1-linux-x64.tar.gz
- 	ln -s /usr/local/nodejs/node-v6.9.1-linux-x64/bin/node /usr/local/bin/node
-	ln -s /usr/local/nodejs/node-v6.9.1-linux-x64/bin/npm /usr/local/bin/npm
+ 	wget https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.xz
+ 	tar -xf node-v8.11.3-linux-x64.tar.xz -C /usr/local/nodejs/
+ 	rm -rf node-v8.11.3-linux-x64.tar.xz
+ 	ln -s /usr/local/nodejs/node-v8.11.3-linux-x64/bin/node /usr/local/bin/node
+	ln -s /usr/local/nodejs/node-v8.11.3-linux-x64/bin/npm /usr/local/bin/npm
 }
 install_libsodium(){
 	cd /root
