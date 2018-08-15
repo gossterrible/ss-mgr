@@ -109,8 +109,5 @@ iptables -I INPUT -p tcp -m tcp --dport 104 -j ACCEPT
 iptables -I INPUT -p tcp -m tcp --dport 1024: -j ACCEPT
 iptables-save
 	echo "#############################################################"
-	echo "# Install SS-mgr  Success                                   #"
-	echo "# Github: https://github.com/mmmwhy/ss-mgr                  #"
-	echo "# Author: Feiyang.li                                        #"
-	echo "# http://feiyang.li/2017/05/14/ss-mgr/index.html            #"
+	echo "# Install SS-mgr  Success                                    "         #"
 	echo "#############################################################"
