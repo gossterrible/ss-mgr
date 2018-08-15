@@ -36,21 +36,21 @@ install_soft_for_each(){
 }
 install_nodejs(){
 	mkdir /usr/local/nodejs
-	wget -N --no-check-certificate https://nodejs.org/dist/v6.9.1/node-v6.9.1-linux-x64.tar.gz
-	tar -xf node-v6.9.1-linux-x64.tar.gz -C /usr/local/nodejs/
- 	rm -rf node-v6.9.1-linux-x64.tar.gz
- 	ln -s /usr/local/nodejs/node-v6.9.1-linux-x64/bin/node /usr/local/bin/node
- 	ln -s /usr/local/nodejs/node-v6.9.1-linux-x64/bin/npm /usr/local/bin/npm
+ 	wget https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.xz
+ 	tar -xf node-v8.11.3-linux-x64.tar.xz -C /usr/local/nodejs/
+ 	rm -rf node-v8.11.3-linux-x64.tar.xz
+ 	ln -s /usr/local/nodejs/node-v8.11.3-linux-x64/bin/node /usr/local/bin/node
+	ln -s /usr/local/nodejs/node-v8.11.3-linux-x64/bin/npm /usr/local/bin/npm
 }
 install_libsodium(){
 	cd /root
-	wget -N -P  /root https://raw.githubusercontent.com/mmmwhy/ss-panel-and-ss-py-mu/master/libsodium-1.0.11.tar.gz
+	wget -N -P  https://github.com/jedisct1/libsodium/releases/download/1.0.10/libsodium-1.0.10.tar.gz
 	tar xvf libsodium-1.0.11.tar.gz && rm -rf libsodium-1.0.11.tar.gz
 	pushd libsodium-1.0.11
 	./configure --prefix=/usr && make
 	make install
 	popd
-	wget http://home.ustc.edu.cn/~mmmwhy/mbedtls-2.4.0-gpl.tgz
+	wget https://tls.mbed.org/code/releases/mbedtls-2.4.0-gpl.tgz
 	tar xvf mbedtls-2.4.0-gpl.tgz && rm -rf mbedtls-2.4.0-gpl.tgz
 	pushd mbedtls-2.4.0
 	make SHARED=1 CFLAGS=-fPIC
@@ -60,7 +60,7 @@ install_libsodium(){
 }
 install_ss_libev(){
 	cd /root 
-	wget -N -P  /root https://raw.githubusercontent.com/mmmwhy/ss-mgr/master/shadowsocks-libev-3.0.3.tar.gz
+	wget -N -P  /root https://raw.githubusercontent.com/gossterrible/ss-mgr/master/shadowsocks-libev-3.0.3.tar.gz
 	tar -xf shadowsocks-libev-3.0.3.tar.gz && rm -rf shadowsocks-libev-3.0.3.tar.gz && cd shadowsocks-libev-3.0.3
 	yum install epel-release -y
 	yum install gcc gettext autoconf libtool automake make pcre-devel asciidoc xmlto udns-devel libev-devel -y
@@ -68,8 +68,9 @@ install_ss_libev(){
 	make && make install
 }
 install_ss_ubuntu(){
+	sudo apt-get install software-properties-common python-software-properties -y
 	sudo add-apt-repository ppa:max-c-lv/shadowsocks-libev -y
-	sudo apt-get update -y
+	sudo apt-get update
 	sudo apt install shadowsocks-libev -y
 }
 install_ss_for_each(){
@@ -86,7 +87,7 @@ install_ss_mgr(){
 	install_ss_for_each
 	git clone https://github.com/shadowsocks/shadowsocks-manager.git "/root/shadowsocks-manager"
 	cd /root/shadowsocks-manager
-	npm i
+	npm i --unsafe-perm
 	ln -s /usr/local/nodejs/node-v6.9.1-linux-x64/bin/ssmgr /usr/local/bin/ssmgr
 	screen -dmS ss-manager ss-manager -m aes-256-cfb -u --manager-address 127.0.0.1:4000
 }
@@ -106,7 +107,4 @@ iptables -I INPUT -p tcp -m tcp --dport 1024: -j ACCEPT
 iptables-save
 	echo "#############################################################"
 	echo "# Install SM-node Success                                   #"
-	echo "# Github: https://github.com/mmmwhy/ss-mgr                  #"
-	echo "# Author: Feiyang.li                                        #"
-	echo "# http://feiyang.li/2017/05/14/ss-mgr/index.html            #"
 	echo "#############################################################"
